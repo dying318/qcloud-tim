@@ -1,6 +1,6 @@
 # qcloud-tim
 
-2019-11-05 Forked from xutl/qcloud-tim(https://github.com/xutl/qcloud-tim), 部分功能优化
+2019-11-05 Forked from [xutl/qcloud-tim](https://github.com/xutl/qcloud-tim), 部分功能优化
 
 腾讯云 TIM 云通信SDK，支持 同步 异步模式。
 
