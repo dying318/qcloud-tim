@@ -81,6 +81,15 @@ class BaseResponse
     }
 
     /**
+     * 获取返回内容
+     * @return array
+     */
+    public function getContent()
+    {
+        return $this->_content;
+    }
+    
+    /**
      * 解析响应
      * @param \Psr\Http\Message\ResponseInterface $response
      */
