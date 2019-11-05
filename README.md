@@ -1,11 +1,8 @@
 # qcloud-tim
 
-腾讯云 TIM 云通信SDK，支持 同步 异步模式。
+2019-11-05 Forked from xutl/qcloud-tim(https://github.com/xutl/qcloud-tim), 部分功能优化
 
-[![Build Status](https://travis-ci.org/xutl/qcloud-tim.svg?branch=master)](https://travis-ci.org/xutl/qcloud-tim)
-[![License](https://poser.pugx.org/xutl/qcloud-tim/license.svg)](https://packagist.org/packages/xutl/qcloud-tim)
-[![Latest Stable Version](https://poser.pugx.org/xutl/qcloud-tim/v/stable.png)](https://packagist.org/packages/xutl/qcloud-tim)
-[![Total Downloads](https://poser.pugx.org/xutl/qcloud-tim/downloads.png)](https://packagist.org/packages/xutl/qcloud-tim)
+腾讯云 TIM 云通信SDK，支持 同步 异步模式。
 
 
 ## Installation
@@ -15,13 +12,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist xutl/qcloud-tim
+php composer.phar require --prefer-dist dying318/qcloud-tim
 ```
 
 or add
 
 ```
-"xutl/qcloud-tim": "~1.0"
+"dying318/qcloud-tim": "~1.0"
 ```
 
 to the require section of your `composer.json` file.
@@ -41,7 +38,6 @@ $client = new Tim(
 );
 
 //操作用户
-
 $account = $client->getAccount('test112');
 //获取用户资料
 $profile = $account->getProfile();
@@ -54,8 +50,15 @@ $account->state();
 //更多接口请看 
 XuTL\QCloud\Tim\Account 类
 
-//群组操作
+// 好有关系操作
+$friend = $client->getFirend('accountId')
+// 检查黑名单关系
+$result = $friend->blackCheck(['checkAccount1'], Constants::BLACK_CHECK_RESULT_TYPE_BOTH);
+if ($result->isSucceed()) {
+    $checkContent = $result->getContent();
+} 
 
+//群组操作
 $group = $client->getGroup('test');
 
 //修改圈子属性
